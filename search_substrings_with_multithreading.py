@@ -13,7 +13,7 @@ def search_keywords(files, keywords):
                 content = file.read()
             for keyword in keywords:
                 if keyword in content:
-                    results[keyword].append(file_path.name)
+                    results[keyword].append(str(file_path))
         except Exception as e:
             print(f"Error processing {file_path}: {str(e)}")
     return results
@@ -53,7 +53,7 @@ def main():
     file_paths = list(Path("./data").iterdir())
     keywords = ['behave', 'insult', 'betray', 'Contents', 'cover', 'Frankenstein']
     results = multi_threaded_search(file_paths, keywords)
-    # pprint(results)
+    pprint(results)
 
 
 if __name__=="__main__":
